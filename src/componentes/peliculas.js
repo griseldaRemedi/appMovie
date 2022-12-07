@@ -1,14 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
  
 
 const Peliculas =  () => {
-
-    const [pelis, setPelis] = useState([]);
-
     
     let pagina = 1;
-
-
 
     useEffect(() => {
             const btnAnterior = document.getElementById("btnAnterior");
@@ -32,6 +27,7 @@ const Peliculas =  () => {
         }, [pagina])
         
     const obtenerPeliculas = async () => {
+
             const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=b99d7773e83eff1759b62bfc0e8a373f&languaje=es-MX&page=${pagina}`)
 
             if (respuesta.status === 200){
@@ -52,13 +48,6 @@ const Peliculas =  () => {
 
         }
 
-    /*
-            console.log(pelis.results);
-            console.log( Object.entries(pelis));
-            pelis.forEach((element) => {
-                console.log(element)
-                
-                })*/
     }
 
 

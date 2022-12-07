@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Peliculas from './componentes/peliculas';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="paginacion">
+          <button className="btn btn-outline-primary" id="btnAnterior">Anterior</button>
+          <button className="btn btn-outline-primary" id="btnPosterior">Posterior</button>
+        </div>
+        <div className="contenedor" id="contenedor">
+          <Peliculas/>
+        </div>
+        
     </div>
   );
 }

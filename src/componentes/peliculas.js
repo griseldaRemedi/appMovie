@@ -5,27 +5,31 @@ const Peliculas =  () => {
 
     const [pelis, setPelis] = useState([]);
 
-    const btnAnterior = document.getElementById("btnAnterior");
-    const btnPosterior = document.getElementById("btnPosterior");
+    
     let pagina = 1;
 
-    btnAnterior.addEventListener("click", () => {
-            if (pagina > 1){
-                pagina -= 1;
-                obtenerPeliculas();
-            }
-        })
 
-    btnPosterior.addEventListener("click", () => {
-        if (pagina < 1000){
-            pagina += 1;
-            obtenerPeliculas();
-        }
-    })
 
     useEffect(() => {
+            const btnAnterior = document.getElementById("btnAnterior");
+            const btnPosterior = document.getElementById("btnPosterior");
+
+            btnAnterior.addEventListener("click", () => {
+                if (pagina > 1){
+                    pagina -= 1;
+                    obtenerPeliculas();
+                }
+            })
+
+            btnPosterior.addEventListener("click", () => {
+                if (pagina < 1000){
+                    pagina += 1;
+                    obtenerPeliculas();
+                }
+            })
+
             obtenerPeliculas()
-             }, [])
+        }, [pagina])
         
     const obtenerPeliculas = async () => {
             const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=b99d7773e83eff1759b62bfc0e8a373f&languaje=es-MX&page=${pagina}`)
@@ -48,13 +52,13 @@ const Peliculas =  () => {
 
         }
 
-    
+    /*
             console.log(pelis.results);
             console.log( Object.entries(pelis));
             pelis.forEach((element) => {
                 console.log(element)
                 
-                })
+                })*/
     }
 
 

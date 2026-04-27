@@ -28,7 +28,7 @@ const Peliculas = () => {
 
     const obtenerPeliculas = async () => {
 
-        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=b99d7773e83eff1759b62bfc0e8a373f&languaje=es-MX&page=${pagina.current}`)
+        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=5d209a6137c34c5c0a01607ee6e13021&languaje=es-MX&page=${pagina.current}`)
 
         if (respuesta.status === 200) {
             const datos = await respuesta.json();
